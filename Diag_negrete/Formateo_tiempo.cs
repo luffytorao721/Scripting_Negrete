@@ -4,16 +4,19 @@ class MiPrograma
 {
     string FormatearTiempo(int segundos)
     {
-        int horas = segundos / 3600; // saco las horas
-        int resto = segundos % 3600; // saco el resto
-        int minutos = resto / 60; // saco los minutos
-        int segs = resto % 60; // saco los segundos
-        return horas + ":" + minutos + ":" + segs; // junto todo
+        int horas = segundos / 3600;
+        int resto = segundos % 3600;
+        int minutos = resto / 60;
+        int segs = resto % 60;
+        return horas.ToString("D2") + ":" + minutos.ToString("D2") + ":" + segs.ToString("D2");
     }
 
-    void Empezar()
+    static void Main()
     {
         MiPrograma miCodigo = new MiPrograma();
-        Console.WriteLine(miCodigo.FormatearTiempo(3661)); // muestro el tiempo
+        Console.WriteLine("Ingresa los segundos: ");
+        string input = Console.ReadLine();
+        int segundos = int.Parse(input); // Hace que sea parametrizable
+        Console.WriteLine(miCodigo.FormatearTiempo(segundos));
     }
 }
