@@ -2,23 +2,27 @@ using System;
 
 class MiPrograma
 {
-    void CompararNumeros(int miNumero, int numeroObjetivo)
+    void ComprobarNumero(int miNumero, int numeroSorteo)
     {
-        if (miNumero == numeroObjetivo)
+        if (miNumero == numeroSorteo)
         {
-            Console.WriteLine("Son iguales, gané!"); // si son iguales
+            Console.WriteLine("¡Ganó! El número " + miNumero + " coincide con el sorteo");
+            Console.WriteLine("Premio: $1000");
         }
         else
         {
-            Console.WriteLine("No son iguales, perdí."); // si son diferentes
+            Console.WriteLine("Perdió El número " + miNumero + " no coincide con " + numeroSorteo + ".");
+            Console.WriteLine("No hay premio.");
         }
     }
 
-    void Empezar()
+    static void Main()
     {
         MiPrograma miJuego = new MiPrograma();
-        int miNum = 5; // mi número
-        int numObjetivo = 4; // número objetivo
-        miJuego.CompararNumeros(miNum, numObjetivo); // comparo
+        int miApuesta = 1234; // Número de 4 dígitos que eligió Genérico
+        Console.WriteLine("por favor ingresa el número ganador de 4 dígitos del sorteo de hoy viernes: ");
+        string input = Console.ReadLine();
+        int numeroGanador = int.Parse(input); //qe ingrese el resultado
+        miJuego.ComprobarNumero(miApuesta, numeroGanador);
     }
 }
